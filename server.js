@@ -17,7 +17,7 @@ mongoose.connect(MONGODB_URI, function (err) {
 
 app.use(morgan('dev'));
 app.use(express.static('node_modules'));
-app.use(express.static('public'));
+app.use(express.static('frontend'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(router);

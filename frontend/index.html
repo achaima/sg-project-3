@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="EventApp">
+<head>
+  <title>SG Project 3</title>
+
+
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="angular/angular.min.js"></script>
+  <script src="angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="firebase/firebase.js" charset="utf-8"></script>
+  <script src="angularfire/dist/angularfire.min.js" charset="utf-8"></script>
+  <script src="js/app.js"></script>
+  <script src="js/controllers/event.controller.js"></script>
+
+  <meta charset="UTF-8">
+</head>
+<body>
+  <h1>SG Projdbdjksbjkbt 3</h1>
+
+<nav>
+  <ul>
+      <a ui-sref="login">Login</a>
+      <a ui-sref="signup">Sign Up</a>
+      <a ui-sref="events">Events</a>
+  </ul>
+</nav>
+
+  <section ng-controller="EventController as event" ui-view>
+  </section>
+
+</body>
+</html>
