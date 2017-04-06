@@ -3,7 +3,26 @@
   <input ng-model="event.searchLocation">
   <button ng-click="event.findEvents()">Search!</button>
 
-  <p ng-repeat="e in event.eventResults"> {{ e.title }}</p>
+<div class="col-md-6">
+  <li ng-repeat="e in event.eventResults" > {{ e.title }}
+                <br><strong>StartTime:</strong> {{ e.start_time }}
+                <br><img ng-if="e.image !== null" ng-src="{{ e.image.url }}" width="100px" >
+                <br><img ng-if="e.image === null" width="100px" src="https://skpsoft.com/baby/wp-content/uploads/2016/09/default-thumbnail.jpg" >
+                <strong>VenueName:</strong> {{ e.venue_name }}<br>
+                <button class="btn btn-primary" ng-click="event.saveEvent(e)">Save</button>
+</li>
+</div>
 
-  <div id="map"></div>
+<h2>Saved Events</h2>
+<div class="col-md-6">
+<li ng-repeat="e in event.savedEvents track by $index"> {{ e.title }}
+              <br><strong>StartTime:</strong> {{ e.start_time }}
+              <br><img ng-if="e.image !== null" ng-src="{{ e.image.url }}" width="100px" >
+              <br><img ng-if="e.image === null" width="100px" src="https://skpsoft.com/baby/wp-content/uploads/2016/09/default-thumbnail.jpg" >
+              <strong>VenueName:</strong> {{ e.venue_name }}<br>
+              <button class="btn btn-primary" ng-click="event.removeEvent(e)">Remove</button>
+</li>
+</div>
+
+  <!-- <div id="map"></div> -->
 </section>

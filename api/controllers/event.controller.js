@@ -7,7 +7,7 @@ function findEvents(req, res) {
   var location = req.query.location;
   // sample URL to search by location:
   // http://api.eventful.com/rest/events/search?app_key=YOUR_API_KEY&location=London&date=Future
-  var url = `${eventful.EVENTFUL_BASE_URL}/events/search?app_key=${eventful.EVENTFUL_API_KEY}&location=${location}&date=Future`;
+  var url = `${eventful.EVENTFUL_BASE_URL}/events/search?app_key=${eventful.EVENTFUL_API_KEY}&location=${location}&date=Future&page_number=3&page_size=200`;
 
   request(url, (error, response, body) => {
     var eventsJson;
