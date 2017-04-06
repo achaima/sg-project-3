@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var eventController = require('../controllers/event.controller');
 
-// TODO: fill in your router as required
+router.get('/api/events/find', eventController.find);
 
 module.exports = router;

@@ -2,7 +2,8 @@ var express = require('express');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-var router = require('./config/router');
+var router = require('./api/config/router');
+var eventful = require('./api/config/eventful');
 var app = express();
 var PORT = process.env.PORT || 3000;
 var MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/sg-webdev4-project3';
@@ -23,6 +24,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(router);
 
 app.listen(PORT, function() {
+  console.log('Eventful API key:', eventful.EVENTFUL_API_KEY);
   console.log('App is running on port', PORT);
 });
 

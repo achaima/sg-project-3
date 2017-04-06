@@ -1,2 +1,9 @@
 <!DOCTYPE html>
-<section> {{ event.events }}</section>
+<section ng-controller="EventController as event">
+  <input ng-model="event.searchLocation">
+  <button ng-click="event.findEvents()">Search!</button>
+
+  <p ng-repeat="e in event.eventResults"> {{ e.name }}</p>
+
+  <div id="map"></div>
+</section>
