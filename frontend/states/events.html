@@ -3,7 +3,7 @@
   <input ng-model="event.searchLocation">
   <button ng-click="event.findEvents()">Search!</button>
 
-  <p ng-repeat="e in event.eventResults"> {{ e.name }}</p>
+  <p ng-repeat="e in event.eventResults"> {{ e.title }}</p>
 
   <div id="map"></div>
 </section>
