@@ -22,12 +22,11 @@
   <meta charset="UTF-8">
 </head>
 <body ng-controller="AuthController as auth">
-  <h1>SG Project 3</h1>
-
 <nav>
   <ul>
       <a ui-sref="home">Home</a>
       <a ui-sref="events">Events</a>
+      <a href="#" ng-click="events">Sign Out</a>
   </ul>
 </nav>
 
@@ -35,13 +34,9 @@
 <section class="userWidget headerElement">
       <div ng-if="auth.user">
         <p><strong>
-        	Welcome {{ auth.user.email }}!, remember to keep our secrets a secret!
+        	Welcome {{ auth.user.email }}!
         </strong></p>
 
-
-        <p>
-          <a href="#" ng-click="auth.signOut()">Sign Out</a>
-        </p>
       </div>
 
       <div ng-if="!auth.user">

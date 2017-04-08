@@ -5,9 +5,10 @@ console.log('event.controller: eventful:', eventful);
 
 function findEvents(req, res) {
   var location = req.query.location;
+  var date = req.query.date;
   // sample URL to search by location:
   // http://api.eventful.com/rest/events/search?app_key=YOUR_API_KEY&location=London&date=Future
-  var url = `${eventful.EVENTFUL_BASE_URL}/events/search?app_key=${eventful.EVENTFUL_API_KEY}&location=${location}&date=Future&page_number=3&page_size=200`;
+  var url = `${eventful.EVENTFUL_BASE_URL}/events/search?app_key=${eventful.EVENTFUL_API_KEY}&location=${location}&date=${date}&page_number=2&page_size=100&include=popularity`;
 
   request(url, (error, response, body) => {
     var eventsJson;
@@ -19,7 +20,10 @@ function findEvents(req, res) {
     }
     eventsJson = JSON.parse(body);
     console.log('eventsSearchResults:', eventsJson);
+    console.log('URL:', url);
+    console.log('Weird EVENTS.EVENT:',eventsJson.events.event);
     res.status(200).json(eventsJson.events.event);
+
   });
 }
 

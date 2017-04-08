@@ -2,7 +2,7 @@ function EventController(EventFactory) {
   var controller = this;
 
   controller.findEvents = () => {
-    EventFactory.find(controller.searchLocation).then(
+    EventFactory.find(controller.searchLocation, controller.searchDate).then(
       (success) => {
         controller.eventResults = success.data;
         console.log('Got events:', controller.eventResults);
@@ -24,7 +24,7 @@ function EventController(EventFactory) {
   function init() {
     console.log('EventController:', controller);
     controller.searchLocation = '';
-    // controller.savedEvent = {};
+    controller.searchDate = '';
     controller.savedEvents = [];
   }
 

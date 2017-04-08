@@ -1,9 +1,9 @@
 function EventFactory ($http) {
   return {
-    find: function(location) {
+    find: function(location, date) {
       return $http({
         method: 'GET',
-        url: `/api/events/find/?location=${location}`
+        url: `/api/events/find/?location=${location}&date=${date}`
       });
     }
   };

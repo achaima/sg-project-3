@@ -1,26 +1,54 @@
 <!DOCTYPE html>
 <section ng-controller="EventController as event">
-  <input ng-model="event.searchLocation">
-  <button ng-click="event.findEvents()">Search!</button>
 
+<div class="row">
+<div class="col-md-6 col-md-offset-4">
+  <input class="form-control" placeholder="Enter Location..." ng-model="event.searchLocation">
+
+  <select class="form-control" placeholder="Enter Date..." ng-model="event.searchDate">
+    <option value="All">All</option>
+    <option value="Future">Future</option>
+    <option value="Today">Today</option>
+    <option value="next week">Next week</option>
+    <option value="next week">Next week</option>
+    <option value="January">January</option>
+    <option value="February">February</option>
+    <option value="March">March</option>
+    <option value="April">April</option>
+    <option value="May">May</option>
+    <option value="June">June</option>
+    <option value="July">July</option>
+    <option value="August">August</option>
+    <option value="September">September</option>
+    <option value="October">October</option>
+    <option value="November">November</option>
+    <option value="December">December</option>
+
+  </select>
+  <!-- <input class="form-control" placeholder="Enter Date..." ng-model="event.searchDate"> -->
+  <button class="btn btn-primary" ng-click="event.findEvents()">Search!</button>
+ </div>
+</div>
+
+<h2>Search Results</h2>
 <div class="col-md-6">
-  <li ng-repeat="e in event.eventResults" > {{ e.title }}
+  <li class="searchResult" ng-repeat="e in event.eventResults">
+    <br><img class="eventThumbnail" ng-if="e.image !== null" ng-src="{{ e.image.url }}">
+    <br><img class="eventThumbnail" ng-if="e.image === null" src="https://skpsoft.com/baby/wp-content/uploads/2016/09/default-thumbnail.jpg" >
+                {{ e.title }}
                 <br><strong>StartTime:</strong> {{ e.start_time }}
-                <br><img ng-if="e.image !== null" ng-src="{{ e.image.url }}" width="100px" >
-                <br><img ng-if="e.image === null" width="100px" src="https://skpsoft.com/baby/wp-content/uploads/2016/09/default-thumbnail.jpg" >
                 <strong>VenueName:</strong> {{ e.venue_name }}<br>
                 <button class="btn btn-primary" ng-click="event.saveEvent(e)">Save</button>
 </li>
 </div>
 
-<h2>Saved Events</h2>
 <div class="col-md-6">
-<li ng-repeat="e in event.savedEvents track by $index"> {{ e.title }}
+<li class="searchResult" ng-repeat="e in event.savedEvents track by $index"> {{ e.title }}
               <br><strong>StartTime:</strong> {{ e.start_time }}
               <br><img ng-if="e.image !== null" ng-src="{{ e.image.url }}" width="100px" >
               <br><img ng-if="e.image === null" width="100px" src="https://skpsoft.com/baby/wp-content/uploads/2016/09/default-thumbnail.jpg" >
               <strong>VenueName:</strong> {{ e.venue_name }}<br>
-              <button class="btn btn-primary" ng-click="event.removeEvent(e)">Remove</button>
+              <button class="btn btn-danger" ng-click="event.removeEvent(e)">Remove</button>
 </li>
 </div>
 
