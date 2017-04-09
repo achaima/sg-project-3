@@ -1,17 +1,44 @@
 * {
   font-family: Helvetica, sans-serif;
 }
+nav {
 
+    margin: 0;
+    padding: 0;
+}
+
+li {
+  list-style: none;
+  background-color: rgba(186, 179, 199, 0.4);
+  border: 1px black solid;
+  margin-bottom: 5px;
+}
+
+img {
+  border: grey 2px solid;
+  border-radius: 5px;
+  margin: 15px;
+  display: inline-block;
+}
+
+
+.vertical-center {
+  margin-top: 0;
+  min-height: 70%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 70vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
 
 .form-control {
   width: 400px;
   display: inline-block;
 }
 
-li {
-  list-style: none;
+#selectLocation {
+  width: 200px;
 }
-
 .eventThumbnail {
   height: 150px;
 }
