@@ -1,4 +1,4 @@
-function AuthController($state, $http, AuthFactory) {
+function AuthController($state, $http, UserFactory, AuthFactory) {
   var controller = this;
 
   function resetCredentials() {
@@ -12,7 +12,15 @@ function AuthController($state, $http, AuthFactory) {
     (firebaseUser) => {
       console.log('firebaseUser', firebaseUser);
       resetCredentials();
-      $state.go('events');
+      UserFactory.createUser(firebaseUser.uid).then(
+        (success) => {
+          controller.userProfile = success.data;
+          console.log('USER:', success.data);
+        },
+        (error) => {
+          console.warn('Error creating user from model', error);
+        });
+      $state.go('events', ({ userId: controller.firebaseUserId}));
     },
   (error) => {
     controller.error = error;
@@ -53,4 +61,4 @@ function AuthController($state, $http, AuthFactory) {
 
 angular
   .module('EventApp')
-  .controller('AuthController', ['$state', '$http', 'AuthFactory', AuthController]);
+  .controller('AuthController', ['$state', '$http', 'UserFactory', 'AuthFactory', AuthController]);

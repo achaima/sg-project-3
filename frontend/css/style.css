@@ -25,7 +25,7 @@ img {
 .vertical-center {
   margin-top: 0;
   min-height: 70%;  /* Fallback for browsers do NOT support vh unit */
-  min-height: 70vh; /* These two lines are counted as one :-)       */
+  min-height: 40vh; /* These two lines are counted as one :-)       */
 
   display: flex;
   align-items: center;
