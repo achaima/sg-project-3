@@ -10,6 +10,7 @@ function AuthController($state, $http, UserFactory, AuthFactory) {
     controller.error = null;
     AuthFactory.$createUserWithEmailAndPassword(controller.email, controller.password).then(
     (firebaseUser) => {
+      controller.firebaseUserId = firebaseUser.uid;
       console.log('firebaseUser', firebaseUser);
       resetCredentials();
       UserFactory.createUser(firebaseUser.uid).then(
@@ -20,7 +21,7 @@ function AuthController($state, $http, UserFactory, AuthFactory) {
         (error) => {
           console.warn('Error creating user from model', error);
         });
-      $state.go('events', ({ firebaseUserId: firebaseUser.uid}));
+      $state.go('events', ({ firebaseUserId: firebaseUser.uid }));
     },
   (error) => {
     controller.error = error;

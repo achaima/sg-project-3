@@ -1,17 +1,34 @@
-function UserController(UserFactory) {
+function UserController($stateParams, UserFactory) {
   var controller = this;
 
 
 
-controller.getUser()
-  function init() {
+  controller.getUser = () => {
+    var firebaseUserId = $stateParams.firebaseUserId;
     console.log('UserController:', controller);
+    UserFactory.getUser(firebaseUserId).then(
+      (success) => {
+        controller.userProfile = success.data;
+        console.log('GET USER: success:data', success.data);
+      },
+      (error) => {
+        console.warn('Error getting user:', error);
+      });
+  };
+
+  controller.saveEvent = () => {
+  va
   }
 
+
+
+  function init() {
+    controller.savedEvents = [];
+  }
   init();
 }
 
-UserController.$inject = ['UserFactory'];
+UserController.$inject = ['$stateParams', 'UserFactory'];
 
 angular
   .module('EventApp')

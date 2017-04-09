@@ -13,6 +13,13 @@ function UserFactory ($http) {
         method: 'GET',
         url: `/users/${firebaseUserId}`
       });
+    },
+    saveEvent: function (firebaseUserId, savedEvents) {
+      return $http({
+        method: 'PATCH',
+        url: `/users/${firebaseUserId}`,
+        data: savedEvents
+      });
     }
 
   };

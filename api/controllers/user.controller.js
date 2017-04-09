@@ -12,6 +12,16 @@ function createUser(req, res) {
 }
 
 
+function getUser(req, res) {
+  var firebaseUserId = req.params.firebaseUserId;
+  User.findOne({ firebaseUserId: firebaseUserId }, function(error, user) {
+    if (error) return res.json(error);
+    res.json({ user: user });
+  });
+}
+
+
 module.exports = {
-  createUser: createUser
+  createUser: createUser,
+  getUser: getUser
 };

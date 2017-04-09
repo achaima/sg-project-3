@@ -28,7 +28,8 @@
 <nav>
   <ul>
       <a ui-sref="home">Home</a>
-      <a ui-sref="events">Events</a>
+      <a ui-sref="events({ firebaseUserId: auth.firebaseUserId })">Events</a>
+      <a ui-sref="profile({ firebaseUserId: auth.firebaseUserId })">Profile</a>
       <a href="#" ng-click="auth.signOut()">Sign Out</a>
 
 

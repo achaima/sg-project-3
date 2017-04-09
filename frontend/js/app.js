@@ -29,6 +29,18 @@ function MainRouter($stateProvider, $urlRouterProvider) {
           }
         ]
       }
+    })
+    .state('profile', {
+      url: '/:firebaseUserId/profile',
+      templateUrl: '/states/profile.html',
+      resolve: {
+        currentAuth: [
+          'AuthFactory',
+          (AuthFactory) => {
+            return AuthFactory.$requireSignIn();
+          }
+        ]
+      }
     });
 }
 

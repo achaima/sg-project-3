@@ -6,5 +6,6 @@ var userController = require('../controllers/user.controller');
 router.get('/api/events/find', eventController.find);
 
 router.post('/users', userController.createUser);
+router.get('/users/:firebaseUserId', userController.getUser);
 
 module.exports = router;
