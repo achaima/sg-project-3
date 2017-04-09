@@ -19,7 +19,7 @@ function MainRouter($stateProvider, $urlRouterProvider) {
       templateUrl: '/states/auth-required.html'
     })
     .state('events', {
-      url: '/events',
+      url: '/:firebaseUserId/events',
       templateUrl: '/states/events.html',
       resolve: {
         currentAuth: [

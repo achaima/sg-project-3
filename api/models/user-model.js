@@ -1,13 +1,8 @@
 var mongoose = require('mongoose');
-
 var UserSchema = mongoose.Schema({
   firebaseUserId: {
     type: String
   },
-  name: {
-    type: String
-  },
-  eventSaved: []
+  events: []
 });
-
 module.exports = mongoose.model('User', UserSchema);
