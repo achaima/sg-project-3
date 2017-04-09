@@ -20,7 +20,7 @@ function AuthController($state, $http, UserFactory, AuthFactory) {
         (error) => {
           console.warn('Error creating user from model', error);
         });
-      $state.go('events', ({ userId: controller.firebaseUserId}));
+      $state.go('events', ({ firebaseUserId: firebaseUser.uid}));
     },
   (error) => {
     controller.error = error;

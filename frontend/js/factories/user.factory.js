@@ -7,7 +7,14 @@ function UserFactory ($http) {
         url: '/users',
         headers: {firebaseUserId: firebaseUserId}
       });
+    },
+    getUser: function (firebaseUserId) {
+      return $http({
+        method: 'GET',
+        url: `/users/${firebaseUserId}`
+      });
     }
+
   };
 }
 
