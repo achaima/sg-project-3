@@ -13,19 +13,10 @@ function EventController(EventFactory) {
     );
   };
 
-  controller.saveEvent = (event) => {
-    controller.savedEvents.push(event);
-  };
-
-  controller.removeEvent = (index) => {
-    controller.savedEvents.splice(index, 1);
-  };
-
   function init() {
     console.log('EventController:', controller);
     controller.searchLocation = '';
     controller.searchDate = '';
-    controller.savedEvents = [];
   }
 
   init();

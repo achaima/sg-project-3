@@ -21,6 +21,10 @@ img {
   display: inline-block;
 }
 
+.jumbotron {
+  background-image: url('draggon.jpg');
+  background-repeat: no-repeat;
+}
 
 .vertical-center {
   margin-top: 0;
@@ -41,4 +45,8 @@ img {
 }
 .eventThumbnail {
   height: 150px;
+}
+.title {
+  display: inline-block;
+  position: absolute;
 }

@@ -21,7 +21,32 @@ function getUser(req, res) {
 }
 
 
+function getSavedEvents(req, res) {
+  var firebaseUserId = req.params.firebaseUserId;
+  User.findOne({ firebaseUserId: firebaseUserId }, function(error, user) {
+    if(error) return res.json(error);
+    res.json({ savedEvents: user.events });
+  });
+}
+
+function updateUsersEvents(req, res) {
+  var firebaseUserId = req.params.firebaseUserId;
+  var updatedUserEvents = req.body;
+  console.log('req.body@@@@@@@@@@@@@@', req.body);
+  User.findOne({ firebaseUserId: firebaseUserId }, function(error, user) {
+    if(error) return res.json(error);
+    user.events = updatedUserEvents;
+    user.save(function(error) {
+      if (error) return res.json(error);
+      res.json({ message: 'updated event list' });
+    });
+  });
+}
+
+
 module.exports = {
   createUser: createUser,
-  getUser: getUser
+  getUser: getUser,
+  getSavedEvents: getSavedEvents,
+  updateUsersEvents: updateUsersEvents
 };

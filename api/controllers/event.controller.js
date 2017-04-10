@@ -21,7 +21,7 @@ function findEvents(req, res) {
     eventsJson = JSON.parse(body);
     console.log('eventsSearchResults:', eventsJson);
     console.log('URLL:', url);
-    console.log('Weird EVENTS.EVENT:',eventsJson.events.event);
+    console.log('Weird EVENTS.EVENT:', eventsJson.events.event);
     res.status(200).json(eventsJson.events.event);
 
   });

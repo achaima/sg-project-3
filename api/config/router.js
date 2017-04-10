@@ -7,5 +7,7 @@ router.get('/api/events/find', eventController.find);
 
 router.post('/users', userController.createUser);
 router.get('/users/:firebaseUserId', userController.getUser);
+router.patch('/users/:firebaseUserId', userController.updateUsersEvents);
+router.get('/users/:firebaseUserId/saved-events', userController.getSavedEvents);
 
 module.exports = router;

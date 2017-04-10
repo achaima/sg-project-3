@@ -14,17 +14,28 @@ function UserFactory ($http) {
         url: `/users/${firebaseUserId}`
       });
     },
+    getSavedEvents: function(userId) {
+      return $http({
+        method: 'GET',
+        url: `/users/${userId}/saved-events`
+      });
+    },
     saveEvent: function (firebaseUserId, savedEvents) {
       return $http({
         method: 'PATCH',
         url: `/users/${firebaseUserId}`,
         data: savedEvents
       });
+    },
+    removeEvent: function (firebaseUserId, savedEvents) {
+      return $http({
+        method: 'PATCH',
+        url: `/users/${firebaseUserId}`,
+        data: savedEvents
+      });
     }
-
   };
 }
-
 
 angular
   .module('EventApp')
