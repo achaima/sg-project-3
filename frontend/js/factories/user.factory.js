@@ -28,8 +28,9 @@ function UserFactory ($http) {
       });
     },
     removeEvent: function (firebaseUserId, savedEvents) {
+      console.log(savedEvents);
       return $http({
-        method: 'PATCH',
+        method: 'PUT',
         url: `/users/${firebaseUserId}`,
         data: savedEvents
       });

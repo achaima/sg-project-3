@@ -29,9 +29,8 @@ function UserController($stateParams, UserFactory) {
     );
   };
 
-  controller.saveEvents = (event) => {
-    controller.savedEvents.push(event);
-    UserFactory.saveEvent($stateParams.firebaseUserId, controller.savedEvents).then(
+  controller.saveEvent = (event) => {
+    UserFactory.saveEvent($stateParams.firebaseUserId, event).then(
       (success) => {
         console.log('Events Saved: success:', success);
         console.log('Events Saved: success:', controller.savedEvents);
@@ -44,16 +43,26 @@ function UserController($stateParams, UserFactory) {
 
 
   controller.removeEvents = (index) => {
-    controller.savedEvents.splice(index, 1);
-    UserFactory.removeEvent($stateParams.firebaseUserId, controller.savedEvents).then(
-        (success) => {
-          console.log('Events removed: success:', success);
-          console.log('Events removed: success:', controller.savedEvents);
-        },
-        (error) => {
-          console.log('Unable to remove event', error);
-        }
-      );
+    UserFactory.getSavedEvents($stateParams.firebaseUserId).then(
+      (success) => {
+        controller.savedEvents = success.data.savedEvents;
+        controller.savedEvents.splice(index, 1);
+        console.log('Got saved events', controller.savedEvents);
+
+        UserFactory.removeEvent($stateParams.firebaseUserId, controller.savedEvents).then(
+            (success) => {
+              console.log('Events removed: success:', success);
+              console.log('Events removed: success:', controller.savedEvents);
+            },
+            (error) => {
+              console.log('Unable to remove event', error);
+            }
+          );
+      },
+      (error) => {
+        console.warn('Could not get saved events', error);
+      }
+    );
   };
 
 
