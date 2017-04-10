@@ -43,7 +43,7 @@ function AuthController($state, $http, UserFactory, AuthFactory) {
 
   controller.signOut = () => {
     AuthFactory.$signOut();
-    $state.go('events');
+    $state.go('home');
   };
 
   function init() {

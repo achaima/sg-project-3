@@ -30,7 +30,7 @@
       <a ui-sref="home">Home</a>
       <a ui-sref="events({ firebaseUserId: auth.user.uid  })">Events</a>
       <a ui-sref="profile({ firebaseUserId: auth.user.uid })">Profile</a>
-      <a href="#" ng-click="auth.signOut()">Sign Out</a>
+      <a ui-sref="home" ng-click="auth.signOut()">Sign Out</a>
 
 
       <section class="userWidget headerElement">
@@ -42,10 +42,6 @@
             </div>
 
             <div ng-if="!auth.user">
-              <p>Welcome new person!!</p>
-              <a ui-sref="login">Click Here</a> to log in.
-              <br>
-              <a ui-sref="signup">Click Here</a> to register and see our secrets!
             </div>
           </section>
 
@@ -54,13 +50,11 @@
 </nav>
 
 
-
-
   <section ng-controller="EventController as event" ui-view>
   </section>
 
   <footer>
-    <p><strong>TODO:</strong> put reference to eventful.com website as described on their site</p>
+    <!-- <p><strong>TODO:</strong> put reference to eventful.com website as described on their site</p> -->
   </footer>
 
 </body>

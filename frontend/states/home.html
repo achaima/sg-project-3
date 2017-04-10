@@ -1,1 +1,29 @@
+<!DOCTYPE HTML>
+<div id="login">
 
+
+<section id="loginbox" class="col-md-6 col-md-offset-4" ng-if="!auth.user">
+  <h2>Log in</h2>
+  <div>
+    <input class="loginform" type="text" ng-model="auth.email" placeholder="E-mail Address">
+  </div>
+
+<div>
+    <input class="loginform" type="password" ng-model="auth.password" placeholder="Password">
+</div>
+
+<button class="btn btn-success" ng-click="auth.signIn()">Sign in</button>
+
+<a ui-sref="signup"><p class="signUp">Not a member yet?</p></a>
+
+<p ng-if="auth.error">
+  Error: <strong>{{ auth.error }}</strong>
+</p>
+</section>
+
+<!-- <section>
+<h3>Don't be silly you're already logged in...</h3>
+</section> -->
+
+
+</div>
