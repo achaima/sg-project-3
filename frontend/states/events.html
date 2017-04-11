@@ -45,7 +45,7 @@
                     <strong>{{ e.start_time.substr(0, 16) }}</strong>
                     <h4><a class="resultBox" href="{{e.url}}">{{ e.title }}</a></h4>
                     <h5><br><a class="resultBox" href="{{e.venue_url}}">{{ e.venue_name }}</a></h5>
-                    <button class="btn btn-primary" ng-click="user.saveEvent(e)">Save</button>
+                    <button class="btn btn-primary saveAndRemove" ng-click="user.saveEvent(e)">Save</button>
                     </div>
     </li>
 
