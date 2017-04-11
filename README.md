@@ -32,3 +32,7 @@ The client side also referred to the frontend of the App is built using AngularJ
 The users events will also be saved onto MongoDB
 The app is built with HTML, CSS and JavaScript
 The styling is done by CSS and Bootstrap
+
+##Author
+
+Asma Chaima
