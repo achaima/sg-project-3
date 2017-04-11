@@ -190,3 +190,8 @@ text {
 #signOutButton {
   margin-left: 1000px;
 }
+
+.authError {
+  color: red;
+  text-shadow: none;
+}

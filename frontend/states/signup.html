@@ -16,8 +16,8 @@
 
   <button class="btn btn-success" ng-click="auth.createUser()">Submit</button>
 
-  <p ng-if="auth.error">
-    Error: <strong>{{ auth.error }}</strong>
+  <p ng-if="auth.error" class="authError">
+  {{ auth.error }}
   </p>
 </div>
 </section>
