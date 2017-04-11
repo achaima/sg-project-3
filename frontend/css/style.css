@@ -7,33 +7,44 @@ body {
   width: 100vw;
 }
 
-nav {
-    background-color: rgba(186, 179, 199, 0.4);
-    padding-bottom: 5px
+.navBar {
+  background-color: rgba(0, 0, 0, 0.46);
+  padding: 10px;
+}
+
+.navBar li {
+    display: inline-block;
+    padding: 0px 30px;
+}
+
+.navBar li a {
+  color: white;
+  text-shadow: 1px 1px black;
+  text-decoration: none;
+}
+
+.navBar li a:hover{
+  color: #3232ff;
+  text-shadow: none;
+  text-decoration: none;
 }
 
 li {
   list-style: none;
-  border: 1px black solid;
-
 }
 
 img {
-  border: grey 2px solid;
-  border-radius: 5px;
+  border-radius: 2px;
   margin: 15px;
   display: inline-block;
 }
 
-
 .form-control {
-  width: 400px;
+  width: 300px;
   display: inline-block;
 }
 
-#selectLocation {
-  width: 200px;
-}
+
 .eventThumbnail {
   height: 150px;
 }
@@ -42,6 +53,7 @@ img {
   display: inline-block;
   position: absolute;
 }
+
 #login {
   background: url('../images/loginwinter.jpg');
   background-repeat: no-repeat;
@@ -50,10 +62,9 @@ img {
   width: 100vw;
   background-color: rgba(255,255,255, .2); /* fallback for old browsers */
   background-blend-mode: overlay;
-
 }
 
-#loginbox {
+.box {
   border-radius: 5px;
   padding: 10px 30px;
   background-color: rgba(255,255,255, .7);
@@ -85,5 +96,20 @@ text {
 
 .signUp {
   margin-top: 7px;
+  margin-left: 100px;
   text-shadow: none;
+}
+
+#signup {
+    background: url('../images/coachella.jpg');
+    background-size: cover;
+    min-height: 100vh;
+    width: 100vw;
+    background-color: rgba(255,255,255, .2); /* fallback for old browsers */
+    background-blend-mode: overlay;
+  }
+}
+
+.searchResults {
+  color: black;
 }

@@ -26,13 +26,13 @@
 </head>
 <body ng-controller="AuthController as auth">
 <nav>
-  <ul>
-      <a ui-sref="home">Home</a>
-      <a ui-sref="events({ firebaseUserId: auth.user.uid  })">Events</a>
-      <a ui-sref="profile({ firebaseUserId: auth.user.uid })">Profile</a>
-      <a ui-sref="home" ng-click="auth.signOut()">Sign Out</a>
-
-
+  <ul class="navBar">
+      <li><a ui-sref="home">Home</a></li>
+      <li><a ui-sref="events({ firebaseUserId: auth.user.uid  })">Events</a></li>
+      <li><a ui-sref="profile({ firebaseUserId: auth.user.uid })">Profile</a></li>
+      <li><a ui-sref="home" ng-click="auth.signOut()">Sign Out</a></li>
+    </ul>
+  </nav>
       <section class="userWidget headerElement">
             <div ng-if="auth.user">
               <p><strong>
@@ -46,8 +46,6 @@
           </section>
 
 
-  </ul>
-</nav>
 
 
   <section ng-controller="EventController as event" ui-view>

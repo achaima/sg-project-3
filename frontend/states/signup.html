@@ -1,27 +1,28 @@
 <!DOCTYPE html>
-<h2>Sign up</h2>
+<div id="signup">
 
 <section class="signup" ng-if="!auth.user">
-
-
+  <div class="box">
+  <h2>Sign up</h2>
   <div>
-    Email: <input type="text" ng-model="auth.email">
+    <input class="loginform" type="text" ng-model="auth.email" placeholder="E-mail Address">
   </div>
 
   <div>
-    Password: <input type="password" ng-model="auth.password">
+    <input class="loginform" type="password" ng-model="auth.password" placeholder="Password">
   </div>
 
   <br>
 
-  <button ng-click="auth.createUser()">Create User</button>
+  <button class="btn btn-success" ng-click="auth.createUser()">Submit</button>
 
   <p ng-if="auth.error">
     Error: <strong>{{ auth.error }}</strong>
   </p>
-
+</div>
 </section>
 
 <section ng-if="auth.user">
   <h3>Don't be silly. You are already logged in...</h3>
 </section>
+</div>

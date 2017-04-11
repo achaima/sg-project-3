@@ -9,7 +9,7 @@
         <a href="{{u.url}}"><h3 class="title">{{ u.title }}</h3></a>
         <strong>StartTime:</strong> {{ u.start_time }}
         <a href="{{u.venue_url}}">{{ u.venue_name }}</a>
-        <button class="btn btn-primary" ng-if="user.savedEvents.length > 0" ng-click="user.removeEvents($index)">Remove</button>
+        <button class="btn btn-danger" ng-if="user.savedEvents.length > 0" ng-click="user.removeEvents($index)">Remove</button>
     </li>
 
 
