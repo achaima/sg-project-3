@@ -23,3 +23,12 @@ Functions
 This project uses Firebase to create new users, signing in and signing out.
 The user can search through a pre-assembled list of events populated by the Eventful Data Base API data and filter results by adding their desired location and timeframe.
 The user also has the ability to add and remove events from their profile.
+
+
+##Technologies Used
+
+The server is running with node.js
+The client side also referred to the frontend of the App is built using AngularJs which controls the states through ui-routing and the logic to create a single page app.
+The users events will also be saved onto MongoDB
+The app is built with HTML, CSS and JavaScript
+The styling is done by CSS and Bootstrap
