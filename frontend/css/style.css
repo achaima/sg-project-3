@@ -186,3 +186,7 @@ text {
 .saveAndRemove {
   margin-top: 40px;
 }
+
+#signOutButton {
+  margin-left: 1000px;
+}
