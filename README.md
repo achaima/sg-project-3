@@ -33,6 +33,12 @@ The users events will also be saved onto MongoDB
 The app is built with HTML, CSS and JavaScript
 The styling is done by CSS and Bootstrap
 
+##Resources used
+- w3Schools
+- Angular Docs
+- Mongoose Docs
+- Google Fonts
+
 ##Author
 
 Asma Chaima
