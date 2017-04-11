@@ -3,14 +3,14 @@
 <section ng-init="user.getUser(); user.getSavedEvents()">
 
 
-      <li ng-repeat="u in user.savedEvents track by $index" ng-if="user.savedEvents.length > 0">
+      <li class="searchResult" ng-repeat="u in user.savedEvents track by $index" ng-if="user.savedEvents.length > 0">
         <img ng-show="u.image !== null" ng-src="{{ u.image.block200.url }}">
         <img class="eventThumbnail" ng-if="u.image === null" src="https://skpsoft.com/baby/wp-content/uploads/2016/09/default-thumbnail.jpg" >
         <a href="{{u.url}}"><h3 class="title">{{ u.title }}</h3></a>
         <strong>StartTime:</strong> {{ u.start_time }}
         <a href="{{u.venue_url}}">{{ u.venue_name }}</a>
         <button class="btn btn-danger" ng-if="user.savedEvents.length > 0" ng-click="user.removeEvents($index)">Remove</button>
-    </li>
+     </li>
 
 
 </section>
