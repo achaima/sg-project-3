@@ -5,11 +5,13 @@
 body {
   min-height: 100vh;
   width: 100vw;
+  position: relative;
 }
 
 .navBar {
   background-color: rgba(0, 0, 0, 0.46);
   padding: 10px;
+  z-index: 999;
 }
 
 .navBar li {
@@ -36,15 +38,15 @@ li {
 .searchResult {
   border: 1px #cccccc solid;
   margin: 5px;
-  /*padding-right: 0;*/
+  width: 700px;
 }
 
 
 img {
   border-radius: 2px;
-  margin: 15px;
   display: inline-block;
-}
+  margin-left: 95px;
+  }
 
 .form-control {
   width: 300px;
@@ -67,6 +69,12 @@ img {
   background-size: cover;
   min-height: 100vh;
   width: 100vw;
+  position: relative;
+  top: -10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   background-color: rgba(255,255,255, .2); /* fallback for old browsers */
   background-blend-mode: overlay;
 }
@@ -108,10 +116,17 @@ text {
 }
 
 #signup {
-    background: url('../images/coachella.jpg');
+    background: url('../images/coachella.jpg') center center no-repeat;
     background-size: cover;
     min-height: 100vh;
+    /*min-height: calc(100vh - 20px );*/
     width: 100vw;
+    position: relative;
+    top: -10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     background-color: rgba(255,255,255, .2); /* fallback for old browsers */
     background-blend-mode: overlay;
   }
