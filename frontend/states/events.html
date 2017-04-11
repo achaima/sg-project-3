@@ -5,6 +5,7 @@
     <div class="row">
     <div class="jumbotron">
     <div class="col-md-6 col-md-offset-3">
+      <h1>Find Your Event</h1>
       <input class="form-control" placeholder="Enter Location..." ng-model="event.searchLocation">
 
 
@@ -26,22 +27,25 @@
         <option value="December">December</option>
       </select>
 
-      <button class="btn btn-primary" ng-click="event.findEvents()">Search!</button>
+      <button class="btn btn-primary" ng-click="event.findEvents(); event.btnClicked(true) ">Search!</button>
      </div>
     </div>
 
 
 <!--EVENTS SEARCH RESULTS-->
   <div class="col-md-8 col-md-offset-3">
+    <div class="loader-container" ng-class="{showLoader: event.index}" ng-if="!event.eventResults.length > 0">
+      <div class="loader"></div>
+    </div>
     <h2 ng-if="event.eventResults.length > 0">Showing Results for <em> "{{ event.searchLocation }}" </em></h2>
       <li class="searchResult"  ng-show="e.image !== null" ng-repeat="e in event.eventResults track by $index">
 
               <img  ng-src="{{ e.image.block200.url }}">
                   <div class="col-md-6">
-                      {{ e.start_time }}
+                    <strong>{{ u.start_time.substr(0, 16) }}</strong>
                     <h4><a class="resultBox" href="{{e.url}}">{{ e.title }}</a></h4>
                     <h5><br><a class="resultBox" href="{{e.venue_url}}">{{ e.venue_name }}</a></h5>
-                    <button class="btn btn-primary" ng-click="user.saveEvent(e)">Save</button>
+                    <button class="btn btn-primary" ng-click="user.saveEvent(e); user.disableButton()" ng-disabled="user.isDisabled">Save</button>
                     </div>
     </li>
 

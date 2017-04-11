@@ -2,15 +2,23 @@
 <section ng-controller="UserController as user">
 <section ng-init="user.getUser(); user.getSavedEvents()">
 
-
+  <div class="col-md-8 col-md-offset-3">
+    <h2 ng-if="user.savedEvents.length > 0">{{user.savedEvents.length}} saved results </h2>
       <li class="searchResult" ng-repeat="u in user.savedEvents track by $index" ng-if="user.savedEvents.length > 0">
-        <img ng-show="u.image !== null" ng-src="{{ u.image.block200.url }}">
-        <img class="eventThumbnail" ng-if="u.image === null" src="https://skpsoft.com/baby/wp-content/uploads/2016/09/default-thumbnail.jpg" >
-        <a href="{{u.url}}"><h3 class="title">{{ u.title }}</h3></a>
-        <strong>StartTime:</strong> {{ u.start_time }}
-        <a href="{{u.venue_url}}">{{ u.venue_name }}</a>
-        <button class="btn btn-danger" ng-if="user.savedEvents.length > 0" ng-click="user.removeEvents($index)">Remove</button>
-     </li>
+        <img  ng-src="{{ u.image.block200.url }}">
+          <div class="col-md-6">
+                <strong>{{ u.start_time.substr(0, 16) }}</strong>
+                <h4><a class="resultBox" href="{{u.url}}">{{ u.title }}</a></h4>
+                <h5><br><a class="resultBox" href="{{u.venue_url}}">{{ u.venue_name }}</a></h5>
+                <button class="btn btn-danger" ng-if="user.savedEvents.length > 0" ng-click="user.removeEvents($index)">Remove</button>
+          </div>
+
+    </li>
+</div>
+
+
+
+
 
 
 </section>

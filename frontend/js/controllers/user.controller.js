@@ -1,8 +1,13 @@
 function UserController($stateParams, UserFactory) {
   var controller = this;
 
+  controller.isDisabled = false;
 
+  controller.disableButton = function() {
+    controller.isDisabled = true;
+  };
 
+  
   controller.getUser = () => {
     var firebaseUserId = $stateParams.firebaseUserId;
     console.log('UserController:', controller);

@@ -1,6 +1,13 @@
 function EventController(EventFactory) {
   var controller = this;
 
+  controller.index = false;
+
+  controller.btnClicked = function($index) {
+    controller.index = $index;
+  };
+
+
   controller.findEvents = () => {
     EventFactory.find(controller.searchLocation, controller.searchDate).then(
       (success) => {
