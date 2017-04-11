@@ -9,7 +9,7 @@ body {
 }
 
 .navBar {
-  background-color: rgba(0, 0, 0, 0.46);
+  background-color: #449d44;
   padding: 10px;
   z-index: 999;
 }
