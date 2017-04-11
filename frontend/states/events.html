@@ -32,12 +32,11 @@
 
 
 <!--EVENTS SEARCH RESULTS-->
-    <div class="col-md-8 col-md-offset-2">
-    <h2>Search Results</h2>
-      <li class="searchResult" ng-repeat="e in event.eventResults track by $index">
+  <div class="col-md-8 col-md-offset-3">
+    <h2 ng-if="event.eventResults.length > 0">Showing Results for <em> "{{ event.searchLocation }}" </em></h2>
+      <li class="searchResult"  ng-show="e.image !== null" ng-repeat="e in event.eventResults track by $index">
 
-        <img ng-show="e.image !== null" ng-src="{{ e.image.block200.url }}">
-        <img class="eventThumbnail" ng-if="e.image === null" src="https://skpsoft.com/baby/wp-content/uploads/2016/09/default-thumbnail.jpg" >
+              <img  ng-src="{{ e.image.block200.url }}">
                   <div class="col-md-6">
                       {{ e.start_time }}
                     <h4><a class="resultBox" href="{{e.url}}">{{ e.title }}</a></h4>

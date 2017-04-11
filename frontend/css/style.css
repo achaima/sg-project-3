@@ -38,14 +38,14 @@ li {
 .searchResult {
   border: 1px #cccccc solid;
   margin: 5px;
-  width: 700px;
+  width: 660px;
 }
 
 
 img {
   border-radius: 2px;
   display: inline-block;
-  margin-left: 95px;
+  margin-left: 127px;
   }
 
 .form-control {
