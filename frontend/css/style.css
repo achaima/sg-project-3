@@ -21,12 +21,12 @@ body {
 
 .navBar li a {
   color: white;
-  text-shadow: 1px 1px black;
+  text-shadow: 1px 1px darkgray;
   text-decoration: none;
 }
 
 .navBar li a:hover{
-  color: #3232ff;
+  color: #39CCCC;
   text-shadow: none;
   text-decoration: none;
 }
@@ -53,10 +53,6 @@ img {
   display: inline-block;
 }
 
-
-.eventThumbnail {
-  height: 150px;
-}
 
 .title {
   display: inline-block;
