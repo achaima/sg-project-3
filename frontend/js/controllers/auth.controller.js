@@ -34,9 +34,11 @@ function AuthController($state, $http, UserFactory, AuthFactory) {
   controller.signIn = () => {
     controller.error = null;
     AuthFactory.$signInWithEmailAndPassword(controller.email, controller.password).then(
-      () => {
+      (firebaseUser) => {
+        controller.firebaseUserId = firebaseUser.uid;
+        console.log('firebaseUser', firebaseUser);
         resetCredentials();
-        $state.go('events');
+        $state.go('events', ({ firebaseUserId: firebaseUser.uid }));
       }
     );
   };

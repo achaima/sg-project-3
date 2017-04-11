@@ -36,10 +36,7 @@ li {
 .searchResult {
   border: 1px #cccccc solid;
   margin: 5px;
-}
-
-.titleAndVenue {
-  margin-left: 250px;
+  /*padding-right: 0;*/
 }
 
 
