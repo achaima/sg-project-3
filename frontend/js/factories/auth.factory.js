@@ -2,13 +2,14 @@
 function AuthRun() {
   // Initialize Firebase
   var config = {
-    apiKey: 'AIzaSyBwANwQKGpI6Z4aHwKSejCaxg8CqRUniUc',
-    authDomain: 'sg-project-3-asma.firebaseapp.com',
-    databaseURL: 'https://sg-project-3-asma.firebaseio.com',
-    projectId: 'sg-project-3-asma',
-    storageBucket: 'sg-project-3-asma.appspot.com',
-    messagingSenderId: '1036254142293'
+    apiKey: 'AIzaSyAalTGYUoHGQEvCoG5sXigZKvc_fGI8HIc',
+    authDomain: 'sg-project-3.firebaseapp.com',
+    databaseURL: 'https://sg-project-3.firebaseio.com',
+    projectId: 'sg-project-3',
+    storageBucket: 'sg-project-3.appspot.com',
+    messagingSenderId: '875972431943'
   };
+
   firebase.initializeApp(config);
 }
 
