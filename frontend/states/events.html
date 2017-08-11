@@ -1,56 +1,75 @@
 <!DOCTYPE html>
 
 <!--EVENTS SEARCH BAR-->
-<section ng-controller="UserController as user" class="container">
-    <div class="row">
-    <div class="jumbotron">
-    <div class="justify-content-center">
-      <h1 class="searchTitle">Find Your Event</h1>
-      <input class="form-control" placeholder="Enter Location..." ng-model="event.searchLocation">
+<section ng-controller="UserController as user">
+
+<div class="jumbotron">
+
+      <h1 class="text-center">Find Your Event</h1>
+
+        <input class="form-control col-md-3" placeholder="Where..." ng-model="event.searchLocation">
 
 
-      <select class="form-control" id="selectLocation" placeholder="Enter Date" ng-model="event.searchDate">
-     <option value="" disabled selected hidden>Please Choose...</option>
-        <option value="All">All</option>
-        <option value="Future">Future</option>
-        <option value="Today">Today</option>
-        <option value="This week">This week</option>
-        <option value="Next week">Next week</option>
-        <option value="April">April</option>
-        <option value="May">May</option>
-        <option value="June">June</option>
-        <option value="July">July</option>
-        <option value="August">August</option>
-        <option value="September">September</option>
-        <option value="October">October</option>
-        <option value="November">November</option>
-        <option value="December">December</option>
-      </select>
+        <select class="form-control col-md-2" id="selectLocation" placeholder="Enter Date" ng-model="event.searchDate">
+       <option value="" disabled selected hidden>When...</option>
+          <option value="All">All</option>
+          <option value="Future">Future</option>
+          <option value="Today">Today</option>
+          <option value="This week">This week</option>
+          <option value="Next week">Next week</option>
+          <option value="April">April</option>
+          <option value="May">May</option>
+          <option value="June">June</option>
+          <option value="July">July</option>
+          <option value="August">August</option>
+          <option value="September">September</option>
+          <option value="October">October</option>
+          <option value="November">November</option>
+          <option value="December">December</option>
+        </select>
 
-      <button class="btn btn-success" ng-click="event.findEvents(); event.btnClicked(true) ">Search</button>
-     </div>
-    </div>
-
+        <button
+          class="btn btn-success"
+          ng-click="event.findEvents(); event.btnClicked(true) ">Search
+       </button>
 
 <!--EVENTS SEARCH RESULTS-->
-  <div class="justify-content-center">
-    <div class="loader-container" ng-class="{showLoader: event.index}" ng-if="!event.eventResults.length > 0">
+    <div class="loader-container"
+         ng-class="{showLoader: event.index}"
+         ng-if="!event.eventResults.length > 0">
+
       <div class="loader"></div>
     </div>
-    <h2 ng-if="event.eventResults.length > 0">Showing Results for <em> "{{ event.searchLocation }}" </em></h2>
-      <li class="searchResult"  ng-show="e.image !== null" ng-repeat="e in event.eventResults track by $index">
 
-              <img  ng-src="{{ e.image.block200.url }}">
-                  <div class="col-md-6">
-                    <strong>{{ e.start_time.substr(0, 16) }}</strong>
-                    <h4><a class="resultBox" href="{{e.url}}">{{ e.title }}</a></h4>
-                    <h5><br><a class="resultBox" href="{{e.venue_url}}">{{ e.venue_name }}</a></h5>
-                    <button class="btn btn-primary saveAndRemove" ng-click="user.saveEvent(e)">Save</button>
-                    </div>
-    </li>
+    <!-- <h2 ng-if="event.eventResults.length > 0">Showing Results for
+      <em> "{{ event.searchLocation }}" </em>
+    </h2> -->
 
-    </div>
-  </div>
+    <ul class="list-inline">
+      <li ng-show="e.image !== null"
+          ng-repeat="e in event.eventResults track by $index"
+          class="list-inline-item">
+
+        <div class="eachResult card-group">
+          <img class="img-responsive card-img-top" ng-src="{{ e.image.block200.url }}">
+
+
+              <div class="card col-md-3">
+                  <small class="text-muted">{{ e.start_time.substr(0, 16) }}</small>
+                  <p class="card-text">
+                  <a class="text-capitalize card-title" href="{{e.url}}">{{ e.title }}</a>
+                  <a href="{{e.venue_url}}">{{ e.venue_name }}</a>
+                </p>
+                  <small class="text-muted">{{ e.venue_address }}</small>
+
+                  <button class="btn btn-primary"
+                          ng-click="user.saveEvent(e)">Save
+                  </button>
+              </div>
+          </div>
+
+     </li>
+   </ul>
 
   <!--EVENT HOME PAGE-->
   <div class="EventHomeList">
@@ -58,5 +77,5 @@
     </li>
   </div>
 
-
+</div>
 </section>

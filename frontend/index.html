@@ -3,8 +3,9 @@
 <head>
   <title>SG Project 3</title>
 
-  <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+
   <link rel="stylesheet" href="/css/style.css">
   <!--Angular-->
   <script src="angular/angular.min.js"></script>
@@ -26,12 +27,12 @@
   <meta charset="UTF-8">
 </head>
 <body ng-controller="AuthController as auth">
-<nav>
-  <ul class="navBar">
-      <li ><a ng-if="!auth.user" ui-sref="home">Home</a></li>
-      <li><a ui-sref="events({ firebaseUserId: auth.user.uid  })">Events</a></li>
-      <li><a ui-sref="profile({ firebaseUserId: auth.user.uid })">Profile</a></li>
-      <li><a ng-if="auth.user" ui-sref="home" ng-click="auth.signOut()" id="signOutButton">Sign Out</a></li>
+<nav class="navbar sticky-top navbar-light bg-faded fixed-top">
+  <ul class="list-inline">
+      <li class="list-inline-item"><a ng-if="!auth.user" ui-sref="home">Home</a></li>
+      <li class="list-inline-item"><a ui-sref="events({ firebaseUserId: auth.user.uid  })">Events</a></li>
+      <li class="list-inline-item"><a ui-sref="profile({ firebaseUserId: auth.user.uid })">Profile</a></li>
+      <li class="list-inline-item"><a ng-if="auth.user" ui-sref="home" ng-click="auth.signOut()" id="signOutButton">Sign Out</a></li>
     </ul>
   </nav>
       <section class="userWidget headerElement">
