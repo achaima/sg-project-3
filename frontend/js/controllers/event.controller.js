@@ -21,12 +21,10 @@ function EventController(EventFactory) {
   };
 
 
-
   function init() {
     console.log('EventController:', controller);
     controller.searchLocation = '';
     controller.searchDate = '';
-    controller.eventPictures = ['images/festival.jpeg', 'images/holi.jpg', 'images/lights.jpg', 'wireless.jpg'];
   }
 
   init();

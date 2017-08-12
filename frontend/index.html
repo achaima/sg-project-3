@@ -3,10 +3,14 @@
 <head>
   <title>SG Project 3</title>
 
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 
   <link rel="stylesheet" href="/css/style.css">
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   <!--Angular-->
   <script src="angular/angular.min.js"></script>
   <script src="angular-ui-router/release/angular-ui-router.min.js"></script>
@@ -27,28 +31,40 @@
   <meta charset="UTF-8">
 </head>
 <body ng-controller="AuthController as auth">
-<nav class="navbar sticky-top navbar-light bg-faded fixed-top">
-  <ul class="list-inline">
-      <li class="list-inline-item"><a ng-if="!auth.user" ui-sref="home">Home</a></li>
-      <li class="list-inline-item"><a ui-sref="events({ firebaseUserId: auth.user.uid  })">Events</a></li>
-      <li class="list-inline-item"><a ui-sref="profile({ firebaseUserId: auth.user.uid })">Profile</a></li>
-      <li class="list-inline-item"><a ng-if="auth.user" ui-sref="home" ng-click="auth.signOut()" id="signOutButton">Sign Out</a></li>
+
+<nav class="navbar sticky-top navbar-light bg-faded fixed-top navbar-toggleable-md">
+
+  <a class="navbar-brand" ui-sref="events({ firebaseUserId: auth.user.uid })">
+     <img src="images/binoculars.png"
+          width="30" height="30" alt=""
+          class="d-inline-block align-top">Event Finder
+   </a>
+
+
+  <ul class="navbar-nav mr-auto">
+
+       <li class="nav-item dropdown" ng-if="auth.user">
+              <a class="nav-link dropdown-toggle"
+                 id="navbarDropdownMenuLink"
+                 data-toggle="dropdown"
+                 aria-haspopup="true"
+                 aria-expanded="false">
+                <i class="fa fa-user-o" aria-hidden="true"></i>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item"
+                   ui-sref="profile({ firebaseUserId: auth.user.uid })">
+                   Profile
+                </a>
+                <a class="dropdown-item"
+                   ui-sref="home"
+                   ng-click="auth.signOut()"
+                   id="signOutButton">Sign Out</a>
+              </div>
+            </li>
     </ul>
+
   </nav>
-      <section class="userWidget headerElement">
-            <div ng-if="auth.user">
-              <!-- <p><strong>
-              	Welcome {{ auth.user.email }}!
-              </strong></p> -->
-
-            </div>
-
-            <div ng-if="!auth.user">
-            </div>
-          </section>
-
-
-
 
   <section ng-controller="EventController as event" ui-view>
   </section>

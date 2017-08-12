@@ -1,5 +1,5 @@
 * {
-font-family: 'Oswald', sans-serif;
+/*font-family: 'Oswald', sans-serif;*/
 font-size: 15px;
 }
 
@@ -7,28 +7,60 @@ font-size: 15px;
   padding: 0;
 }
 
-/*.card{
-  display:inline-block;
-}*/
-
-.list-inline-item {
-    display: inline;
-    margin-right: 5px;
+.navbar-brand {
+  padding-left: 2%;
 }
 
-/*.container {
-  margin-right: 0;
-}*/
+.jumbotron {
+  background:url("../images/event-jumbotron.jpg") no-repeat;
+  background-color: rgba(255,255,255, .2); /* fallback for old browsers */
+  background-blend-mode: overlay;
+  color: white;
+  /*position: fixed;
+  z-index: 999;*/
+}
+.input-group-addon{
+  background-color: green;
+  color: white;
+}
+
+li {
+  list-style: none;
+}
+
+.card-group {
+  display: flex;
+}
+
+.save-button {
+  display: block;
+  margin: 1px;
+}
+
+.card-title{
+  margin: 0;
+}
+
+.card-text {
+  margin: 0;
+}
+
+.event-list{
+  display: inline-block;
+}
+
+.list-inline-item:not(:last-child) {
+     margin-right: 0px;
+}
 
 .form-control{
   display: inline-flex;
 }
+
 .searchResult {
   border: 1px #cccccc solid;
   margin: 5px;
 }
-
-
 
 #login {
   background: url('../images/loginwinter.jpg');

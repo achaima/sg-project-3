@@ -2,19 +2,47 @@
 <section ng-controller="UserController as user">
 <section ng-init="user.getUser(); user.getSavedEvents()">
 
-  <div class="col-md-8 col-md-offset-3">
-    <h2 ng-if="user.savedEvents.length > 0">{{user.savedEvents.length}} saved results </h2>
-      <li class="searchResult" ng-repeat="u in user.savedEvents track by $index" ng-if="user.savedEvents.length > 0">
-        <img  ng-src="{{ u.image.block200.url }}">
-          <div class="col-md-6">
-                <strong>{{ u.start_time.substr(0, 16) }}</strong>
-                <h4><a class="resultBox" href="{{u.url}}">{{ u.title }}</a></h4>
-                <h5><br><a class="resultBox" href="{{u.venue_url}}">{{ u.venue_name }}</a></h5>
-                <button class="btn btn-danger saveAndRemove" ng-if="user.savedEvents.length > 0" ng-click="user.removeEvents($index)">Remove</button>
-          </div>
 
+    <h2 ng-if="user.savedEvents.length > 0">{{user.savedEvents.length}} saved results </h2>
+      <li class="list-inline-item event-list col-md-3"
+          ng-repeat="u in user.savedEvents track by $index"
+          ng-if="user.savedEvents.length > 0">
+
+        <div class="card mb-3">
+            <img class="img-responsive card-img-top" ng-src="{{ u.image.block200.url }}">
+
+              <div class="card-block">
+                    <small class="text-muted">{{ u.start_time.substr(0, 16) }}</small>
+                  <p class="card-text">
+                    <a class="text-capitalize card-title" href="{{e.url}}">{{ e.title }}</a>
+                  </p>
+                  <p class="card-text">{{ u.venue_name }}</p>
+                    <small class="text-muted">{{ u.venue_address}}</small>
+                <button class="btn btn-danger saveAndRemove"
+                        ng-if="user.savedEvents.length > 0" ng-click="user.removeEvents($index)">Remove
+                </button>
+              </div>
+          </div>
     </li>
-</div>
+
+
+
+<!-- <div class="card mb-3">
+    <img class="img-responsive card-img-top" ng-src="{{ e.image.block200.url }}">
+
+        <div class="card-block">
+            <small class="text-muted">{{ e.start_time.substr(0, 16) }}</small>
+            <p class="card-text">
+              <a class="text-capitalize card-title" href="{{e.url}}">{{ e.title }}</a>
+            </p>
+            <p class="card-text">{{ e.venue_name }}</p>
+            <small class="text-muted">{{ e.venue_address }}</small>
+
+            <button class="btn btn-primary save-button"
+                    ng-click="user.saveEvent(e)">Save
+            </button>
+        </div>
+</div> -->
 
 
 

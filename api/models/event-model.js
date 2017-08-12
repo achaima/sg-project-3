@@ -8,6 +8,9 @@ var EventSchema = mongoose.Schema({
   },
   start_time: {
     type: String
+  },
+  address: {
+    type: String
   }
 });
 
