@@ -2,6 +2,8 @@
 <section ng-controller="UserController as user">
  <section ng-init="user.getUser(); user.getSavedEvents()">
 
+   <h2 class="py-5 text-center text-capitalize" ng-if="user.savedEvents.length === 0">You have no saved events </h2>
+
     <h2 class="py-5 text-center text-capitalize" ng-if="user.savedEvents.length > 0">{{user.savedEvents.length}} saved results </h2>
       <li class="list-inline-item event-list col-md-3"
           ng-repeat="u in user.savedEvents track by $index"
